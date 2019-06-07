@@ -22,10 +22,9 @@ class App extends Component {
     );
   }
   deleteChar = (event)=>{
-    console.log(event.index);
-    
-    let newPar = this.state.paragraph.slice(0, event.index) + this.state.paragraph.slice(event.index + 1);
-    this.setState({paragraph:newPar})
+    const text = this.state.paragraph.split('');
+    text.splice(event.index,1);
+    this.setState({paragraph:text.join('')})
   }
   inputChangeListner = (event) =>{
     this.setState({paragraph:event.target.value})
